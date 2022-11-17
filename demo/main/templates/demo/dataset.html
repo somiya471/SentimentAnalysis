@@ -1,0 +1,17 @@
+{% extends 'demo/basic.html' %}
+{% block css %}
+
+
+{% endblock %}
+{% block body %}
+{% load static %}
+<div id="dataset" class="hideshow">
+<form action="/dataset" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<input type="file" name="csv_files" accept=".csv">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div>
+
+{% endblock %}
+

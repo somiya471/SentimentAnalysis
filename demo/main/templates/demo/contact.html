@@ -1,0 +1,57 @@
+{% extends 'demo/basic.html' %}
+{% block css %}
+.start-section{
+    height: 100;
+    display: flex;
+    align-items: center;
+    background:white;
+    padding-top: 30px;
+    padding-bottom: 100px;
+
+}
+.start-photo h1{
+    font-size:55px;
+}
+.start-photo p{
+    font-size:20px;
+}
+{% endblock %}
+{% block body %}
+{% load static %}
+<header class="start-section">
+
+
+        <div class="start-text">
+            <img src="{% static 'demo/contactus.png' %}" height="700vh" width="1000vh">
+        </div>
+        <div class="start-photo">
+            <h1>Contact Us</h1></br>
+            <p>Explore the future with us.</br>Feel free to get in touch with us</p>
+            <form action="/submit" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Full Name" name="name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+<!--  <div class="form-group">-->
+<!--    <label for="exampleInputPassword1" class="form-label">Password</label>-->
+<!--    <input type="password" class="form-control" id="exampleInputPassword1">-->
+<!--  </div>              -->
+  <div class="form-group">
+    <label for="message">Message</label>
+    <input type="text" class="form-control" id="message" placeholder="How can we get better?" name="message">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+        </div>
+    </header>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'demo/basic.html' %}
+{% block css %}
+
+{% endblock %}
+{% block body %}
+{% load static %}
+
+<div id="dataset" class="hideshow container">
+<form action="/load_data" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <input class="form-control text-center col-md-12 my-3 mx-5" type="file" name="csv_files" accept=".pdf">
+    </div>
+    <center>
+    <button type="submit" class="btn btn-primary my-5">Analyze</button>
+        </center>
+</form>
+
+<center>
+    <div class="table table-striped table-hover" >{{loaded_data | safe}}</div>
+</center>
+<hr/>
+<div>
+    <div class="container">
+        {% if review %}
+        <h2>Your Results</h2>
+        <hr/>
+        <h3>{{ review }}</h3>
+        <hr/>
+        <h3>Dashboard</h3>
+        {% endif %}
+        <div class="my-4 w-100 chartjs-render-monitor" id="myChart1" width="1522" height="642" style="display: block; height: 514px; width: 1218px;"></div>
+
+<div class="my-4 w-100 chartjs-render-monitor" id="myChart2" width="1522" height="642" style="display: block; height: 514px; width: 1218px;"></div>
+
+<div class="my-4 w-100 chartjs-render-monitor" id="myChart3" width="1522" height="642" style="display: block; height: 514px; width: 1218px;"></div>
+
+<div class="my-4 w-100 chartjs-render-monitor" id="myChart4" width="1522" height="642" style="display: block; height: 514px; width: 1218px;">
+    <center><img src="/static/demo/{{name}}.png" width="1000px" class="my-5"></center>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+  var mygraph1 = {{ graph1 |safe }};
+  Plotly.newPlot("myChart1", mygraph1, {});
+var mygraph2 = {{ graph2 |safe }};
+  Plotly.newPlot("myChart2", mygraph2, {});
+var mygraph3 = {{ graph3 |safe }};
+  Plotly.newPlot("myChart3", mygraph3, {});
+// //var mygraph4 = {{ graph4 |safe }};
+//   //Plotly.newPlot("myChart4", mygraph4, {});
+// var mygraph5 = {{ graph5 |safe }};
+//   Plotly.newPlot("myChart5", mygraph5, {});
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,137 @@
+{% extends 'demo/basic.html' %}
+{% block css %}
+.about img{
+
+}
+.container img{
+
+
+}
+.container h1{
+    padding-left:450px;
+    font-size: 45px;
+
+}
+.container2 h1{
+    padding-left:700px;
+    font-size: 45px;
+
+}
+.container p{
+    padding-left:380px;
+}
+.container3 h1{
+    padding-left:630px;
+    font-size: 45px;
+
+}
+.container3 p{
+    padding-left:440px;
+}
+.container2 p{
+    padding-left:600px;
+}
+.start-section{
+    height: 100;
+    display: flex;
+    align-items: center;
+    background:white;
+    padding-top: 30px;
+    padding-bottom: 100px;
+    padding-left:300px;
+
+}
+.start-text{
+    padding-right:90px
+}
+.start-text h1{
+    font-size: 55px;
+
+}
+.photo-line{
+    padding-left:240px;
+
+}
+.card{
+    display: inline-block;
+
+}
+.card img{
+    padding-left:20px;
+}
+
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container">
+<h1>About us</h1>
+<p>We make analysis and visualization easy</p>
+<img src="{% static 'demo/about.png' %}" height="600px" width="1200px">
+</div>
+<div class="container3">
+<h1>Our Mission</h1>
+<p>Dataset we get is in raw format, there’s no such eye pleasuring insights for data scientist.</br>Our project's goal was to make data analysis easier and better visualized.We are able to </br>identify the polarities, forecast the audit's mood, and create a stunning visualization of it.
+</p>
+<p>------------------------------------------------------------------------------------------------</p>
+</div>
+<header class="start-section">
+
+
+        <div class="start-text">
+            <h1>Coz Every</br>Sentiment</br>Can Now be</br>Visualized</h1>
+
+        </div>
+        <div class="start-photo">
+            <img src="{% static 'demo/aboutme.png' %}" height="500vh" width="600vh">
+        </div>
+</header>
+<div class="container2">
+    <h1>Team</h1>
+    <p>Meet the people behind our magical project</p></br>
+</div>
+<div class="photo-line">
+    <div class="card" style="width: 16rem;">
+                <img src="{% static 'demo/marge.png' %}" height="200px" width="200px">
+                <div class="card-body">
+                  <h5 class="card-title">Somiya Panikar</h5>
+                    <div class="about">
+                    <a href="https://github.com/somiya471"><img src="{% static 'demo/github.png' %}" height="70%" width="30%"></a>
+                        <a href="https://www.linkedin.com/in/somiya-panikar-74a26022b/"><img src="{% static 'demo/linkedin.png' %}" height="70%" width="30%"></a>
+                        </div>
+                </div>
+    </div>
+    <div class="card" style="width: 16rem;">
+                <img src="{% static 'demo/lisa.png' %}" height="200px" width="170px">
+                <div class="card-body">
+                  <h5 class="card-title">Mitali Mohite</h5>
+                    <div class="about">
+                    <a href="https://github.com/somiya471"><img src="{% static 'demo/github.png' %}" height="70%" width="30%"></a>
+                        <a href="https://www.linkedin.com/in/somiya-panikar-74a26022b/"><img src="{% static 'demo/linkedin.png' %}" height="70%" width="30%"></a>
+                        </div>
+                </div>
+    </div>
+    <div class="card" style="width: 16rem;">
+                <img src="{% static 'demo/homer.png' %}" height="200px" width="180px">
+                <div class="card-body">
+                  <h5 class="card-title">Parth Mishra</h5>
+                    <div class="about">
+                    <a href="https://github.com/somiya471"><img src="{% static 'demo/github.png' %}" height="70%" width="30%"></a>
+                        <a href="https://www.linkedin.com/in/somiya-panikar-74a26022b/"><img src="{% static 'demo/linkedin.png' %}" height="70%" width="30%"></a>
+                        </div>
+                </div>
+    </div>
+    <div class="card" style="width: 16rem;">
+                <img src="{% static 'demo/bart.png' %}" height="200px" width="200px">
+                <div class="card-body">
+                  <h5 class="card-title">Shubham Mojidra</h5>
+                    <div class="about">
+                    <a href="https://github.com/somiya471"><img src="{% static 'demo/github.png' %}" height="70%" width="30%"></a>
+                        <a href="https://www.linkedin.com/in/somiya-panikar-74a26022b/"><img src="{% static 'demo/linkedin.png' %}" height="70%" width="30%"></a>
+                        </div>
+                </div>
+    </div>
+
+</div></br></br>
+
+{% endblock %}

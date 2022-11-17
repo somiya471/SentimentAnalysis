@@ -1,0 +1,152 @@
+{% extends 'demo/basic.html' %}
+{% block css %}
+
+.box{
+    position: absolute;
+    width:650px;
+    left:27%;
+    padding: 20px 30px;
+    background: #ffffff;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+.start-text{
+    padding-left: 100px;
+}
+.start-section{
+    height: 100;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background:white;
+    padding-top: 30px;
+    padding-bottom: 200px;
+
+}
+.start-section2{
+    height: 100;
+    display: flex;
+    align-items: center;
+    background:white;
+    padding-left:180px;
+    padding-top: 500px;
+    padding-bottom: 100px;
+
+}
+.start-text p{
+    color: black;
+    font-size: 20px;
+
+}
+.start-text h1{
+    color: black;
+    font-size: 60px;
+
+}
+.start-steps{
+    padding-left:90px;
+}
+
+
+{% endblock %}
+{% block body %}
+{% load static %}
+<header class="start-section">
+<!--    {% for message in messages %}-->
+<!--    <div class="alert alert-{{ message.tags}} alert-dismissible fade show" role="alert">-->
+<!--        <strong>Message : </strong>{{ message }}-->
+<!--        <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--        <span aria-hidden="true">&times;</span>-->
+<!--            </button>-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+
+
+        <div class="start-text">
+            {% if user.is_authenticated %}
+            <p>Welcome {{ user.first_name }}</p>
+    {% endif %}
+            <h1>The best way </br> to visualize </br> your dataset</h1>
+            <p>do sentiment analysis and visualize your dataset</p></br>
+<!--            <button>See how it works</button>-->
+            <a class="btn btn-primary" href="#div">See how it works</a>
+        </div>
+        <div class="start-photo">
+            <img src="{% static 'demo/mainpage.png' %}" height="500vh" width="600vh">
+        </div>
+
+</header>
+
+ <div id="sentiment"></div>
+
+<div class="box">
+<h1>Start your </br> Experience</h1>
+
+<form action="/predict#sentiment" method="post">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="inputvalue">Enter a sentence</label>
+    <input type="text" class="form-control" id="inputvalue" placeholder="enter your input" name="text">
+  </div>
+  <button type="submit" class="btn btn-primary mb-4">Submit</button>
+
+</form>
+
+{% if a %}
+{% if a == 'positive' %}
+<div class="alert alert-success" role="alert">
+  Sentiment is {{a}}
+</div>
+{% elif a == 'negative' %}
+<div class="alert alert-danger" role="alert">
+  Sentiment is {{a}}
+</div>
+{% elif a == 'neutral' %}
+<div class="alert alert-primary" role="alert">
+  Sentiment is {{a}}
+</div>
+{% endif %}
+{% endif %}
+
+</div>
+
+
+
+<header class="start-section2">
+
+
+        <div class="start-text" id="div">
+            <div class="start-photo">
+            <img src='{% static "demo/charts.png" %}' height="400vh" width="500vh">
+            </div>
+            <h1>Lets talk about</br>Our Project</h1>
+            <p>Wow this project is so awesome! Let me tell you</br>why right here, right now.</p>
+<!--            <button>Get started</button>-->
+            {% if user.is_authenticated %}
+            <a class="btn btn-primary" href="/dashboard">Get started</a>
+            {% endif %}
+        </div>
+        <div class="start-steps">
+
+                    <h3><b>Step 1</b></h3>
+                    <p>Import the dataset</p></br></br>
+                    <p>---------------------------------</p>
+
+                    <h3><b>Step 2</b></h3>
+                    <p>Do sentiment analysis on the data</p></br></br>
+                    <p>---------------------------------</p>
+
+
+                    <h3><b>Step 3</b></h3>
+                    <p>Start building charts and graphs</p></br></br>
+                    <p>---------------------------------</p>
+
+
+        </div>
+
+    </header>
+
+
+{% endblock %}
+
+
